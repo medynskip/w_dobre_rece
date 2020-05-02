@@ -5,10 +5,10 @@ const Header = () => {
   return (
     <div className="container main-login">
       <div className="row">
-        <Link to="/">
+        <Link to="/login">
           Zaloguj
         </Link>
-        <Link to="/">
+        <Link to="/register">
           Załóż konto
         </Link>
       </div>

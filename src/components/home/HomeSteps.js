@@ -4,19 +4,19 @@ export default () => {
 
     const steps = [
         {
-            icon: 'Icon-1.png',
+            icon: 'images/ico1.png',
             title: 'Wybierz rzeczy',
             subtitle: 'ubrania, zabawki, sprzęt i inne'
         }, {
-            icon: 'Icon-2.png',
+            icon: 'images/ico2.png',
             title: 'Spakuj je',
             subtitle: 'skorzystaj z worków na śmieci'
         }, {
-            icon: 'Icon-3.png',
+            icon: 'images/ico3.png',
             title: 'Zdecyduj komu chcesz pomóc',
             subtitle: 'wybierz zaufane miejsce'
         }, {
-            icon: 'Icon-4.png',
+            icon: 'images/ico4.png',
             title: 'Zamów kuriera',
             subtitle: 'kurier przyjedzie w dogodnym terminie'
         }
@@ -24,24 +24,23 @@ export default () => {
 
 
     return (
-        <div>
-            <div>
+        <div className="container steps">
+            <div className="row">
                 <h3>Wystarczą 4 proste kroki</h3>
-                <img src="./../../images/Decoration.svg" />
             </div>
-            <div>
+            <div className="row grey-bkg">
                 {steps.map((el, i) => {
                     return (
-                        <div key={i}>
-                            <img src={"./../images/" + el.icon} />
+                        <div className="col-3" key={i}>
+                            <img src={el.icon} alt={el.title} />
                             <span>{el.title}</span>
                             <span>{el.subtitle}</span>
                         </div>
                     )
                 })}
             </div>
-            <div>
-                <button>ODDAJ RZECZY</button>
+            <div className="row">
+                <button>ODDAJ<br />RZECZY</button>
             </div>
         </div>
     )

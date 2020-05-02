@@ -20,9 +20,9 @@ export default () => {
 
     return (
 
-        <div>
+        <div id="partners">
             <h3>Komu pomagamy?</h3>
-            <img src="./../../images/Decoration.svg" />
+            <img src="./../../images/Decoration.svg" alt='' />
             <button>Fundacjom</button>
             <button>Organizacjom pozarządowym</button>
             <button>Lokalnym zbiórkom</button>

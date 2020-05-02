@@ -17,14 +17,20 @@ export default () => {
     }]
 
     return (
-        <div>
-            {columns.map((el, i) => {
-                return (<div key={i}>
-                    <span>{el.number}</span>
-                    <span>{el.header}</span>
-                    <span>{el.description}</span>
-                </div>)
-            })}
+
+        <div className="home-columns" id="columns">
+            <div className="container">
+                <div className="row">
+                    {columns.map((el, i) => {
+                        return (<div className="col-4" key={i}>
+                            <span>{el.number}</span>
+                            <span>{el.header}</span>
+                            <span>{el.description}</span>
+                        </div>)
+                    })}
+                </div>
+            </div>
         </div>
+
     )
 }
