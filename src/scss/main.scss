@@ -10,6 +10,7 @@ body {
 
 h3 {
     font-size: 26px;
+    margin-top: 40px;
     margin-bottom: 60px;
     position: relative;
 
@@ -151,15 +152,29 @@ h3 {
 
 .about {
     background-color: #F0F1F1;
-    background-image: url('./../images/People.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: calc(100vw /2) 50%;
+    display: flex;
 
-    .col-6 {
+    .half-screen {
+        width: 50vw;
+        display: inline-block;
         text-align: center;
         font-size: 20px;
         padding: 100px 20px;
 
+        &.about-bkg {
+            background-image: url('./../images/People.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        img {
+            margin-top: 40px;
+            max-width: 100px;
+            float: right;
+        }
     }
+}
+
+.partners {
+    text-align: center;
 }
