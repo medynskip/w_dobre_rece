@@ -2,12 +2,14 @@ import React from "react"
 
 import Layout from "../components/layout"
 
+import LoginForm from '../components/loginForm'
+
 
 const IndexPage = () => {
 
     return (
         <Layout>
-            <h1>Logowanie</h1>
+            <LoginForm />
         </Layout>
     )
 }

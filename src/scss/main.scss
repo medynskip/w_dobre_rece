@@ -1,5 +1,7 @@
 @import './simple-grid.scss';
 
+@import './spinner.scss';
+
 @import 'settings/_reset.scss';
 @import 'settings/_fonts.scss';
 @import 'settings/_colors.scss';
@@ -46,7 +48,7 @@ h3 {
     justify-content: flex-end;
 
     a {
-        padding: 5px 20px;
+        padding: 10px 25px;
         cursor: pointer;
 
         &:first-of-type {
@@ -70,19 +72,6 @@ h3 {
 
         .col-7 {
             text-align: center;
-
-            span {
-                display: inline-block;
-                width: 160px;
-                padding: 10px 30px;
-                margin: 10px;
-                border: 0.75px solid #3C3C3C;
-
-                &:hover {
-                    background-color: rgb(214, 214, 214);
-                    cursor: pointer;
-                }
-            }
         }
     }
 }
@@ -131,22 +120,32 @@ h3 {
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            padding: 5px 50px;
+
+            span {
+                padding: 5px 5px;
+
+                &:nth-of-type(1) {
+                    font-size: 16px;
+
+                    &::after {
+                        display: inline-block;
+                        content: "";
+                        border-top: 0.75px solid #707070;
+                        width: 80%;
+                        // transform: translateY(-1px);
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    font-size: 14px;
+                }
+            }
         }
     }
 
     .grey-bkg {
         background-color: #F0F1F1;
-    }
-
-    button {
-        background-color: #fff;
-        font-size: 36px;
-        line-height: 40px;
-        font-weight: 300;
-        color: #3C3C3C;
-        padding: 10px 40px;
-        border: 0.75px solid #3C3C3C;
-        margin: 20px auto;
     }
 }
 
@@ -177,4 +176,120 @@ h3 {
 
 .partners {
     text-align: center;
+
+    .tabs {
+        display: flex;
+        width: 600px;
+        justify-content: space-between;
+        margin: 10px auto;
+    }
+
+    button {
+        cursor: pointer;
+        background: none;
+        border: none;
+
+        &.tab {
+            padding: 2px 20px;
+            font-size: 18px;
+            width: 160px;
+            line-height: 18px;
+            height: 60px;
+        }
+
+        &.pager {
+            padding: 10px;
+        }
+
+        &.active {
+            border: 0.75px solid #707070;
+        }
+    }
+
+    p {
+        width: 600px;
+        margin: 40px auto;
+    }
+
+    .single-company {
+        text-align: left;
+        margin: 10px auto;
+
+        &:nth-of-type(1n+3)::before {
+            display: inline-block;
+            content: "";
+            border-top: 0.75px solid #707070;
+            width: 100%;
+            margin: 10px 1px;
+            // transform: translateY(-1px);
+        }
+
+        .top-details {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+
+            .name {
+                font-size: 20px;
+            }
+
+            .tags {
+                font-size: 14px;
+                color: #707070;
+            }
+        }
+    }
+
+}
+
+.login {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    .login-module {
+
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+            background-color: #F0F1F1;
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            text-align: left;
+            padding: 30px;
+
+            span {
+                margin: 10px 0;
+            }
+
+
+            input {
+                border: none;
+                background-image: none;
+                background-color: transparent;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+                border-bottom: 0.75px solid #707070;
+            }
+
+
+
+        }
+    }
+
 }

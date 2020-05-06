@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Button from './../ui/button';
+
 export default () => {
 
     const steps = [
@@ -41,7 +43,7 @@ export default () => {
                 })}
             </div>
             <div className="row">
-                <button>ODDAJ<br />RZECZY</button>
+                <Button text="ODDAJ RZECZY" target="/login" />
             </div>
         </div>
     )

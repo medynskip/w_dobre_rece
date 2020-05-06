@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
-const Loading = () => {
-    return (
-        <h1>Loading ... </h1>
-    )
-}
+import Loader from './../ui/loader'
+import Tab from './../ui/tab'
 
 const Items = ({ elements }) => {
 
     return (
         elements.map((el, i) => {
             return (
-                <div key={i}>
-                    <h4>{el.name}</h4>
-                    <h4>{el.subtitle}</h4>
-                    <h4>{el.tags}</h4>
-                    <hr />
+                <div className="single-company" key={i}>
+                    <div className="top-details">
+                        <span className="name">{el.name}</span>
+                        <span className="tags">{el.tags}</span>
+                    </div>
+                    <div>{el.subtitle}</div>
                 </div>
             )
         }
@@ -23,18 +21,23 @@ const Items = ({ elements }) => {
     )
 }
 
-const Pagination = ({ items, changePage }) => {
+const Pagination = ({ page, items, changePage }) => {
 
     const handleClick = (e) => {
         const page = parseInt(e.target.name)
         changePage(page)
     }
 
+    // const activeClass = () => {
+    //     return page === name ? 'active pager' : 'pager';
+    // }
+
     const pages = Math.floor((2 + parseInt(items)) / 3);
     const buttons = []
 
     for (let i = 1; i <= pages; i++) {
-        buttons.push(<button name={i} onClick={handleClick} key={i}>{i}</button>)
+        const activeClass = page === i ? 'active pager' : 'pager';
+        buttons.push(<button name={i} className={activeClass} onClick={handleClick} key={i}>{i}</button>)
     }
 
     return (
@@ -73,26 +76,25 @@ export default () => {
         setElements([]);
         setPage(1)
         setTab(e.target.name);
-        // getItems(tab, page);
     }
 
     const changePage = (i) => {
         setPage(i);
-        // getItems(tab, page);
     }
 
     return (
         <div id="partners" className="container partners">
             <div className="row">
                 <h3>Komu pomagamy?</h3>
-                <img src="./../../images/Decoration.svg" alt='' />
-                <button name="fundacje" onClick={handleClick}>Fundacjom</button>
-                <button name="organizacje" onClick={handleClick}>Organizacjom pozarządowym</button>
-                <button name="lokalne" onClick={handleClick}>Lokalnym zbiórkom</button>
+                <div className="tabs">
+                    <Tab text={'Fundacjom'} name={'fundacje'} active={tab} handleClick={handleClick} />
+                    <Tab text={'Organizacjom pozarządowym'} name={'organizacje'} active={tab} handleClick={handleClick} />
+                    <Tab text={'Lokalnym zbiórkom'} name={'lokalne'} active={tab} handleClick={handleClick} />
+                </div>
                 <p>W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.</p>
-                {elements.length < 1 ? <Loading /> : <Items elements={elements} />}
+                {elements.length < 1 ? <Loader /> : <Items elements={elements} />}
                 <span>
-                    {maxItems ? <Pagination items={maxItems} changePage={changePage} /> : null}
+                    {maxItems ? <Pagination page={page} items={maxItems} changePage={changePage} /> : null}
                 </span>
             </div>
         </div>
